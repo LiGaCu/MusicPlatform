@@ -1,0 +1,36 @@
+<div class="row m-0 justify-content-center">
+    <div ngbDropdown class="col-2 col-md-1 d-inline-block">
+        <button class="w-100 btn btn-outline-warning" id="dropdownBasic1" style="overflow: hidden;" ngbDropdownToggle>{{botton_content}}</button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+        <h6 class="dropdown-header">Choose catagory</h6>
+        <div class="dropdown-divider"></div>
+        <button ngbDropdownItem (click)="changeCatagory('Artist ')">Artist</button>
+        <button ngbDropdownItem (click)="changeCatagory('Album ')">Album</button>
+        <button ngbDropdownItem (click)="changeCatagory('Track ')">Track</button>
+        </div>
+    </div>
+    <form *ngIf="botton_content=='Artist '" class="col-6 col-md-3 row form-inline" [formGroup]="artistForm" (ngSubmit)="searchArtist()">
+        <div class="col-8 form-group ml-6 mb-2">
+          <input type="text" id="artistArtist" formControlName="artistArtist" class="form-control" placeholder="Artist Name">
+        </div>
+        <button type="submit" class="col-4 btn btn-warning ml-4 mb-2">Go</button>
+    </form>
+    <form *ngIf="botton_content=='Album '" class="col-10 col-md-5 row form-inline" [formGroup]="albumForm" (ngSubmit)="searchAlbum()">
+        <div class="col-5 form-group ml-6 mb-2">
+          <input type="text" id="albumArtist" formControlName="albumArtist" class="form-control" placeholder="Artist Name">
+        </div>
+        <div class="col-5 form-group ml-2 mb-2">
+          <input type="text" id="albumAlbum" formControlName="albumAlbum" class="form-control" placeholder="Album Name">
+        </div>
+        <button type="submit" class="col-2 btn btn-warning ml-4 mb-2">Go</button>
+    </form>
+    <form *ngIf="botton_content=='Track '" class="col-10 col-md-5 row form-inline" [formGroup]="trackForm" (ngSubmit)="searchTrack()">
+        <div class="col-5 form-group ml-6 mb-2">
+          <input type="text" id="trackArtist" formControlName="trackArtist" class="form-control" placeholder="Artist Name">
+        </div>
+        <div class="col-5 form-group ml-2 mb-2">
+          <input type="text" id="trackTrack" formControlName="trackTrack" class="form-control" placeholder="Track Name">
+        </div>
+        <button type="submit" class="col-2 btn btn-warning ml-4 mb-2">Go</button>
+    </form>
+</div>

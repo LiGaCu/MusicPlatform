@@ -1,0 +1,6 @@
+{
+    "host": "ee599-mysql-db.cqswkw0uvlsi.us-west-1.rds.amazonaws.com",
+    "port": "3306",
+    "user": "admin",
+    "pass": "12345678"
+}

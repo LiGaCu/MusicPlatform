@@ -1,0 +1,38 @@
+<div style="height: 100vh;width: 100vw;position: fixed;top:0;left: 0;background-image: linear-gradient(to bottom, rgb(255, 255, 255) ,rgb(219, 197, 156)); z-index: -1;"></div>
+<div class="w-100" style="height: 10px;"></div>
+<app-searchbar [botton_content]="'Album '"></app-searchbar>
+<div *ngIf="albumDetails" class="row mx-0 justify-content-center" style="margin-top: 30px;">
+    <div class="col-11 col-md-2">
+        <img [src]="albumDetails.strAlbumThumb" class="img-fluid">
+    </div>
+    <div class="col-11 col-md-5">
+        <h1><strong>{{albumDetails.strAlbumStripped}}</strong></h1>
+        <P><em>Released in : {{albumDetails.intYearReleased}}</em></P>
+        <p><strong>Artist</strong> : {{albumDetails.strArtistStripped}}<br>
+           <strong>Style</strong> : {{albumDetails.strStyle}}<br>
+           <strong>Genre</strong> : {{albumDetails.strGenre}}<br>
+           <strong>Score</strong> : {{albumDetails.intScore}}/10 <span style="color: orange;">&#9733;</span></p>
+    </div>
+    <div class="w-100"></div>
+    <div class="col-11 col-md-7" style="margin-top: 20px;">
+        <h3><strong>Description</strong></h3>
+        <p style="font-family: cursive;">{{albumDetails.strDescriptionEN}}</p>
+    </div>
+    <div class="col-11 col-md-7" style="margin-top: 20px;" *ngIf="albumTracks.length">
+        <h3><strong>Tracks</strong></h3>
+        <div class="row" style="margin-top: 20px;" *ngFor="let track of albumTracks">
+            <div class="col-2">
+                <img [src]="track.strTrackThumb" class="img-fluid" style="cursor: pointer;" (click)="routeToTrack(track.strTrack)">
+            </div>
+            <div class="col-10">
+                <p><strong>{{track.strTrack}}</strong></p>
+                <p class="track_description">
+                   <strong>Duration</strong>: {{track.intDuration.toFixed(2)}} mins<br>
+                   <strong>Genre</strong>: {{track.strGenre}}<br>
+                   <strong>Description</strong>: <span style="font-family: cursive;">{{track.strDescriptionEN}}</span></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="w-100" style="height: 80px;"></div>

@@ -1,0 +1,42 @@
+<div style="height: 100vh;width: 100vw;position: fixed;top:0;left: 0;background-image: linear-gradient(to bottom, rgb(255, 255, 255) ,rgb(219, 197, 156)); z-index: -1;"></div>
+<div class="w-100" style="height: 10px;"></div>
+<app-searchbar [botton_content]="'Artist '"></app-searchbar>
+<div *ngIf="artistDetails" class="row mx-0 justify-content-center" style="margin-top: 30px;">
+    <div class="col-11 col-md-2">
+        <img [src]="artistDetails.strArtistThumb" class="img-fluid">
+    </div>
+    <div class="col-11 col-md-5">
+        <h1><strong>{{artistDetails.strArtist}}</strong></h1>
+        <P><em>Perform since: {{artistDetails.intFormedYear}}</em></P>
+        <p><strong>Style</strong> : {{artistDetails.strStyle}}<br>
+           <strong>Gender</strong>: {{artistDetails.strGender}}<br>
+           <strong>Country</strong> : {{artistDetails.strCountry}}</p>
+        <p>
+            <a *ngIf="twitterURL" [href]="twitterURL" target="_blank"><img [src]="twitter_icon" style="width: 32px;margin-right: 10px;"></a>
+            <a *ngIf="facebookURL" [href]="facebookURL" target="_blank"><img [src]="facebook_icon" style="width: 32px;"></a>
+        </p>
+    </div>
+    <div class="w-100"></div>
+    <div class="col-11 col-md-7" style="margin-top: 20px;">
+        <h3><strong>Biology</strong></h3>
+        <p style="font-family: cursive;">{{artistDetails.strBiographyEN}}</p>
+    </div>
+    <div class="col-11 col-md-7" style="margin-top: 20px;" *ngIf="artistAlbums.length">
+        <h3><strong>Albums</strong></h3>
+        <div class="row" style="margin-top: 20px;" *ngFor="let album of artistAlbums">
+            <div class="col-2">
+                <img [src]="album.strAlbumThumb" class="img-fluid" style="cursor: pointer;" (click)="routeToAlbum(album.strAlbumStripped)">
+            </div>
+            <div class="col-10">
+                <p><strong>{{album.strAlbumStripped}}</strong></p>
+                <p class="album_description">
+                   <strong>Released in</strong>: {{album.intYearReleased}}<br>
+                   <strong>Style</strong>: {{album.strStyle}}<br>
+                   <strong>Genre</strong>: {{album.strGenre}}<br>
+                   <strong>Description</strong>: <span style="font-family: cursive;">{{album.strDescriptionEN}}</span></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="w-100" style="height: 80px;"></div>
