@@ -2,7 +2,7 @@
 
 ---
 
-## Links to our application
+### Links to my application (no longer available)
 
 Stable version can be found at:
 
@@ -12,7 +12,13 @@ More features version can be found at:
 
 http://ee599music-env.eba-xycuv9fu.us-east-2.elasticbeanstalk.com
 
-### Deployment instruction
+---
+
+### Video Demo on Youtube
+
+[![Video Demo](https://img.youtube.com/vi/Yb-KuKEXqoo/maxresdefault.jpg)](https://www.youtube.com/watch?v=Yb-KuKEXqoo&t=40s)
+
+### Deployment Instructions
 
 Please pre-install Node.js in both Backend Server and Frontend Server to deploy our product.
 
@@ -41,7 +47,7 @@ Then, you backend server should work.
 
 (To change the data source to your own backend, your need to change the URL-prefix in the frontend-jiatong's Angular Project's services and rebuild the pages.)
 
-### Jiatong Li's Development instructions
+### Jiatong Li's Development Instructions
 
 To run the backend part on local host, use the following:
 
